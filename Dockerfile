@@ -18,3 +18,10 @@ RUN \
 
 # Run Apache in the foreground to work well with Docker and log collection.
 CMD /usr/sbin/httpd -f /opt/hello-php/httpd.conf -D FOREGROUND
+
+# You can test this Docker image locally by running:
+#
+#    $ docker build -t hello-php .
+#    $ docker run --rm -it --expose 8081 -p 8081:8081 -e PORT=8081 hello-php
+#
+# and then visiting http://localhost:8081/ in your browser.
