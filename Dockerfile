@@ -4,9 +4,9 @@ FROM php:5-alpine
 # The /run/apache2 directory is missing in the current apache2 package;
 # this is a bug workaround. See:
 # http://forum.alpinelinux.org/forum/general-discussion/cant-foreground-apache
-RUN mkdir -p /run/apache2 /opt/hello-php
+RUN mkdir -p /opt/hello-php /run/apache2 
 
-ADD . /opt/hello-php
+COPY assets /opt/hello-php/htdocs
 
 RUN \
     # Upgrade old packages.
@@ -15,6 +15,9 @@ RUN \
     apk add --no-cache ca-certificates && \
     # Apache and PHP packages
     apk add apache2 php5-apache2
+
+COPY httpd.conf /opt/hello-php/
+COPY local.ini /etc/php5/conf.d/
 
 # Run Apache in the foreground to work well with Docker and log collection.
 CMD /usr/sbin/httpd -f /opt/hello-php/httpd.conf -D FOREGROUND
