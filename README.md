@@ -1,6 +1,6 @@
 # hello-php
 
-This is a demo Go app you can deploy to [Skyliner](https://www.skyliner.io). You can read more about it here:
+This is a demo PHP app you can deploy to [Skyliner](https://www.skyliner.io). You can read more about it here:
 
 [https://www.skyliner.io/help/hello-skyliner](https://www.skyliner.io/help/hello-skyliner)
 
